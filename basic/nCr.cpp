@@ -37,7 +37,7 @@ long long nCr(long long n, long long r){
 }
 
 
-// if mod not required
+// if mod not required n ≤ 60
 long long nCr(long long n, long long r) {
     if (r > n) return 0;
     if (r == 0 || r == n) return 1;
@@ -52,4 +52,19 @@ long long nCr(long long n, long long r) {
     }
 
     return res;
+}
+
+
+// When n is large (up to 1e6) --> Pascal DP
+long long nCr(int n, int r) {
+    long long C[r + 1] = {0};
+    C[0] = 1;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = min(i, r); j > 0; j--) {
+            C[j] = C[j] + C[j - 1];
+        }
+    }
+
+    return C[r];
 }

@@ -1,19 +1,19 @@
-// with mod
+// with MOD
 
-long long binpow(long long a, long long b, long long mod) {
-    a %= mod;
+long long binpow(long long a, long long b, long long MOD) {
+    a %= MOD;
     long long res = 1;
     while (b > 0) {
         if (b & 1) 
-            res = (res * a) % mod;
-        a = (a * a) % mod;
+            res = (res * a) % MOD;
+        a = (a * a) % MOD;
         b >>= 1;
     }
     return res;
 }
 
 
-// without mod
+// without MOD
 
 long long binpow(long long a, long long b) {
     long long res = 1;
